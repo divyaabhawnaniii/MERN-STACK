@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calculator</title>
+    <style>
+
+        body{
+
+            /*justify-content: center;
+            display: flex;*/
+            align-items: center;
+            font-family: cursive;
+            font-weight: lighter;
+            background-image: url("https://media.istockphoto.com/photos/abstract-grunge-black-texture-background-picture-id1131428317?k=6&m=1131428317&s=612x612&w=0&h=Q5_xz0WFJhoA_CLrWV_lLYwHGfaaw-l9yxZEScITGE0=");
+            background-repeat: no-repeat;
+            background-size:cover ;
+            height: 55vh;
+            width: 100vh;
+            padding-left: 40%;
+            
+        }
+
+        /* table{
+            
+            margin-top: 400px;
+            margin-left: 300px;
+            margin-right: 100px;
+         } */
+
+
+        button {
+            /* display: inline-block; */
+            
+             width: 72px;
+             height: 62px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 20px;
+         }
+
+         .digits:hover,
+         .mathbuttons:hover{
+             background-color: #DEFEC8;
+             box-shadow: 0px 0px 2px #FFBA75, inset 0px -20px 1px #FF8000;
+             border-top: 2px solid #FFF;
+             border-right: 2px solid #FFF;
+             border-bottom: 2px solid #AE5700;
+             border-left: 2px solid #AE5700
+         }
+         
+        .bigbutton{
+             width: 140px;
+             font-size: 30px;
+         }
+
+
+         #main:hover{
+             background-color: red;
+         
+         }
+         #equalto:hover{
+             background-color: yellow;
+         }
+
+         input{
+             border: 3px 3px solid;
+             border-color: white;
+             margin-bottom: 10px;
+             width: 300px;
+         }  
+         #heading{
+             color: orangered;
+             font-family:Pacifico;
+             font-size: 70px;
+             opacity: 0.5;
+             /* margin-left: 800px;
+             margin-bottom:300px ; */
+         
+         }
+         #screen{
+             border: 2px white solid;
+             background-color: #bfc9ca;
+             font-size: 30px;
+         }    
+                     
+
+
+     </style>
+    
+  </head>
+  <body>
+    <h1 id="heading">Calculator</h1><br>
+    <input id="screen" type="text" name="calculator" />
+    <table>
+
+      <tr>
+        <td colspan="2">
+          <button onclick="clr()" id="main" class="bigbutton">AC</button>
+        </td>
+        <td><button onclick="del()" class="digits">DEL</button></td>
+        <td><button onclick="number('/')" class="mathbuttons">/</button></td>
+      </tr>
+
+      <tr>
+        <td><button onclick="number('1')" class="digits">1</button></td>
+        <td><button onclick="number('2')" class="digits">2</button></td>
+        <td><button onclick="number('3')" class="digits">3</button></td>
+        <td><button onclick="number('*')" class="mathbuttons">*</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="number('4')" class="digits">4</button></td>
+        <td><button onclick="number('5')" class="digits">5</button></td>
+        <td><button onclick="number('6')" class="digits">6</button></td>
+        <td><button onclick="number('+')" class="mathbuttons">+</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="number('7')" class="digits">7</button></td>
+        <td><button onclick="number('8')" class="digits">8</button></td>
+        <td><button onclick="number('9')" class="digits">9</button></td>
+        <td><button onclick="number('-')" class="mathbuttons">-</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="number('.')" class="digits">.</button></td>
+        <td><button onclick="number('0')" class="digits">0</button></td>
+        <td colspan="2">
+          <button onclick="result()" id="equalto" class="bigbutton">=</button>
+        </td>
+      </tr>
+    </table>
+
+    <script>
+      function number(num) {
+        var result = document.getElementById("screen");
+        result.value += num;
+      }
+      function result() {
+        var result = document.getElementById("screen");
+        result.value = eval(result.value);
+      }
+
+      function clr() {
+        var result = document.getElementById("screen");
+        result.value = "";
+      }
+
+      function del() {
+        var number = document.getElementById("screen");
+        var remove = number.value;
+        remove = remove.slice(0, remove.length - 1);
+        number.value = remove;
+      }
+    </script>
+  </body>
+  
+</html>
